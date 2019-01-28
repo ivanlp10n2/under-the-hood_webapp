@@ -26,8 +26,8 @@ public class OrderCreatorServlet extends HttpServlet {
 
 		List<MenuItem> items = new MenuDataService().getFullMenu();
 
-		for (int i = 0; i < items.size(); i++){
-			out.println("<li>" + items.get(i).getName() + " " + items.get(i).getPrice() + "    <input type='text' name='item_" + i + "' /> "+ "</li>");
+		for (MenuItem item : items){
+			out.println("<li>" + item.getName() + " " + item.getPrice() + "    <input type='text' name='item_" + item.getId() + "' /> "+ "</li>");
 		}
 
 
