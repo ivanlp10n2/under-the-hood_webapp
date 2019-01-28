@@ -19,9 +19,18 @@
     </servlet>
     <servlet>
         <servlet-name>searchItemServlet</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.menuSearchServlet</servlet-class>
+        <servlet-class>com.virtualpairprogrammers.servlets.MenuSearchServlet</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>orderCreatorServlet</servlet-name>
+        <servlet-class>com.virtualpairprogrammers.servlets.OrderCreatorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>orderCreatorReceived</servlet-name>
+        <servlet-class>com.virtualpairprogrammers.servlets.OrderReceivedServlet</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>home</servlet-name>
         <url-pattern>/listAll.html</url-pattern>
@@ -34,6 +43,13 @@
         <servlet-name>searchItemServlet</servlet-name>
         <url-pattern>/searchResults.html</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>orderCreatorServlet</servlet-name>
+        <url-pattern>/orderCreator.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>orderCreatorReceived</servlet-name>
+        <url-pattern>/orderReceived.html</url-pattern>
+    </servlet-mapping>
 
 </web-app> 

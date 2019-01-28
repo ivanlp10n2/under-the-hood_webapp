@@ -12,9 +12,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class menuSearchServlet extends HttpServlet {
+public class MenuSearchServlet extends HttpServlet {
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		out.println("<html><body>");
