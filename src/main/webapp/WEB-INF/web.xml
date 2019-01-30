@@ -29,6 +29,10 @@
         <servlet-name>orderCreatorReceived</servlet-name>
         <servlet-class>com.virtualpairprogrammers.servlets.OrderReceivedServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>thanksYou</servlet-name>
+        <servlet-class>com.virtualpairprogrammers.servlets.ConfirmationReceivedServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -50,6 +54,10 @@
     <servlet-mapping>
         <servlet-name>orderCreatorReceived</servlet-name>
         <url-pattern>/orderReceived.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>thanksYou</servlet-name>
+        <url-pattern>/ThanksYou.html</url-pattern>
     </servlet-mapping>
 
 </web-app> 
