@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -14,7 +15,15 @@ public class ConfirmationReceivedServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         resp.setContentType("text/html");
 
-        String total = req.getParameter("total");
+        //String total = req.getParameter("total");
+
+        HttpSession sess = req.getSession();
+        Double total = (Double)sess.getAttribute("total");
+
+        if(total == null){
+            resp.sendRedirect("/orderCreator.html");
+            return;
+        }
 
         out.println("<html>");
         out.println("<body>");
