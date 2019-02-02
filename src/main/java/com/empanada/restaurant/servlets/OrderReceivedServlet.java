@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.empanada.restaurant.data.MenuDataService;
 
@@ -32,10 +31,18 @@ public class OrderReceivedServlet extends HttpServlet {
 		}
 		
 		Double total = menuDataService.getOrderTotal();
+		
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
 
-		HttpSession sess = request.getSession();
-		sess.setAttribute("total", total);
+		out.println("<html>");
+		out.println("<body>");
+		out.println("<h1> Ivan's Restaurant </h1>");
+		out.println("<h2> Order your food </h2>");
 
-		response.sendRedirect("/ThanksYou.html");
+		out.println("Thank you - your order has been received. You need to pay $" + total);
+				
+		out.println("</body></html>");
+		out.close();
 	}
 }
