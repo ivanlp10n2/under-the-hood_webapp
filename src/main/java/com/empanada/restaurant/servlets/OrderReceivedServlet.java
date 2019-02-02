@@ -1,15 +1,13 @@
-package com.virtualpairprogrammers.servlets;
+package com.empanada.restaurant.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.virtualpairprogrammers.data.MenuDataService;
-import com.virtualpairprogrammers.domain.MenuItem;
+import com.empanada.restaurant.data.MenuDataService;
 
 public class OrderReceivedServlet extends HttpServlet {
 	

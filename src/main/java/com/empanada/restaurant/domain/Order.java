@@ -1,4 +1,4 @@
-package com.virtualpairprogrammers.domain;
+package com.empanada.restaurant.domain;
 
 import java.util.HashMap;
 import java.util.Map;

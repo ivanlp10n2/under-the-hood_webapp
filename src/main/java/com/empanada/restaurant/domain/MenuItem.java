@@ -1,4 +1,4 @@
-package com.virtualpairprogrammers.domain;
+package com.empanada.restaurant.domain;
 
 public class  MenuItem {
 	private int id;

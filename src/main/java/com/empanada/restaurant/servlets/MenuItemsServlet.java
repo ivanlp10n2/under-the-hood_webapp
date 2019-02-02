@@ -1,7 +1,7 @@
-package com.virtualpairprogrammers.servlets;
+package com.empanada.restaurant.servlets;
 
-import com.virtualpairprogrammers.data.MenuDataService;
-import com.virtualpairprogrammers.domain.MenuItem;
+import com.empanada.restaurant.domain.MenuItem;
+import com.empanada.restaurant.data.MenuDataService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

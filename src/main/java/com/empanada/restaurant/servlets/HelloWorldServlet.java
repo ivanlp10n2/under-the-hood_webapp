@@ -1,4 +1,4 @@
-package com.virtualpairprogrammers.servlets;
+package com.empanada.restaurant.servlets;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

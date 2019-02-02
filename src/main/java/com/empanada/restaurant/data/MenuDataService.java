@@ -1,12 +1,12 @@
-package com.virtualpairprogrammers.data;
+package com.empanada.restaurant.data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.virtualpairprogrammers.domain.MenuCategory;
-import com.virtualpairprogrammers.domain.MenuItem;
+import com.empanada.restaurant.domain.MenuItem;
+import com.empanada.restaurant.domain.MenuCategory;
 
 public class MenuDataService {
 

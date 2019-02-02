@@ -11,23 +11,23 @@
 
     <servlet>
         <servlet-name>home</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.MenuItemsServlet</servlet-class>
+        <servlet-class>com.empanada.restaurant.servlets.MenuItemsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name> HelloWorldServlet</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.HelloWorldServlet</servlet-class>
+        <servlet-class>com.empanada.restaurant.servlets.HelloWorldServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>searchItemServlet</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.MenuSearchServlet</servlet-class>
+        <servlet-class>com.empanada.restaurant.servlets.MenuSearchServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>orderCreatorServlet</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.OrderCreatorServlet</servlet-class>
+        <servlet-class>com.empanada.restaurant.servlets.OrderCreatorServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>orderCreatorReceived</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.OrderReceivedServlet</servlet-class>
+        <servlet-class>com.empanada.restaurant.servlets.OrderReceivedServlet</servlet-class>
     </servlet>
 
 

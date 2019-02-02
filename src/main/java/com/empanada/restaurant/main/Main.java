@@ -1,4 +1,4 @@
-package com.virtualpairprogrammers.main;
+package com.empanada.restaurant.main;
 
 import java.io.File;
 
