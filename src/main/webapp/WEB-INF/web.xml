@@ -31,7 +31,7 @@
     </servlet>
     <servlet>
         <servlet-name>thanksYou</servlet-name>
-        <servlet-class>com.virtualpairprogrammers.servlets.ConfirmationReceivedServlet</servlet-class>
+        <servlet-class>com.empanada.restaurant.servlets.ConfirmationReceivedServlet</servlet-class>
     </servlet>
 
 
