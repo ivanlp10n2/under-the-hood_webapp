@@ -9,60 +9,6 @@
         The menu and online ordering system for Empanada's Restaurant
     </description>
 
-    <servlet>
-        <servlet-name>home</servlet-name>
-        <servlet-class>com.empanada.restaurant.servlets.MenuItemsServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>helloWorldServlet</servlet-name>
-        <servlet-class>com.empanada.restaurant.servlets.HelloWorldServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>searchItemServlet</servlet-name>
-        <servlet-class>com.empanada.restaurant.servlets.MenuSearchServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>orderCreatorServlet</servlet-name>
-        <servlet-class>com.empanada.restaurant.servlets.OrderCreatorServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>orderCreatorReceived</servlet-name>
-        <servlet-class>com.empanada.restaurant.servlets.OrderReceivedServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>thanksYou</servlet-name>
-        <servlet-class>com.empanada.restaurant.servlets.ConfirmationReceivedServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Tesing Servlets-->
-    <servlet-mapping>
-        <servlet-name>helloWorldServlet</servlet-name>
-        <url-pattern>/helloWorld.html</url-pattern>
-    </servlet-mapping>
-
-    <!-- Business application -->
-    <servlet-mapping>
-        <servlet-name>home</servlet-name>
-        <url-pattern>/menu.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>searchItemServlet</servlet-name>
-        <url-pattern>/searchItem.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>orderCreatorServlet</servlet-name>
-        <url-pattern>/order.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>orderCreatorReceived</servlet-name>
-        <url-pattern>/orderReceived.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>thanksYou</servlet-name>
-        <url-pattern>/thanksYou.html</url-pattern>
-    </servlet-mapping>
-
     <!-- Session timeout connection-->
     <session-config>
         <session-timeout>120</session-timeout>
@@ -75,21 +21,9 @@
     </security-role>
 
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>User role</web-resource-name>
-            <url-pattern>/order.html</url-pattern>
-            <url-pattern>/thanksYou.html</url-pattern>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>user</role-name>
-        </auth-constraint>
-    </security-constraint>
-
 
     <!-- If form is set, you need to create a Auth Form with j_security_check-->
-<!--    <login-config>
+    <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
             <form-login-page>/login.html</form-login-page>
@@ -97,9 +31,4 @@
         </form-login-config>
     </login-config>
 
--->
-
-    <login-config>
-        <auth-method>BASIC</auth-method>
-    </login-config>
 </web-app> 
