@@ -21,18 +21,6 @@
     </security-role>
 
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>User role</web-resource-name>
-            <url-pattern>/order.html</url-pattern>
-            <url-pattern>/thanksYou.html</url-pattern>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>user</role-name>
-        </auth-constraint>
-    </security-constraint>
-
 
     <!-- If form is set, you need to create a Auth Form with j_security_check-->
     <login-config>
