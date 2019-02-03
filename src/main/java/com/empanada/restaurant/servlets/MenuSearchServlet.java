@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MenuSearchServlet extends HttpServlet {
 	@Override
-	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		out.println("<html><body>");

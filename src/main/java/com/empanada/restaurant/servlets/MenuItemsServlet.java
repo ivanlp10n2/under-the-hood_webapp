@@ -16,11 +16,21 @@ public class MenuItemsServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
+		out.println("<h1> Empanada's Restaurant </h1>");
+		out.println("<h2> Menu Items </h2>");
 
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>(new MenuDataService().getFullMenu());
 		for (MenuItem item : items){
 			out.println("<li>" + item.toString() + "</li>");
 		}
+
+		out.println("<br>");
+
+		out.println("Please make your order" +
+					"<br>");
+		out.println("<form action=\"/order.html\">\n" +
+					"    <input type=\"submit\" value=\"Order now \" />\n" +
+					"</form>");
 
 		out.println("</body></html>");
 		out.close();

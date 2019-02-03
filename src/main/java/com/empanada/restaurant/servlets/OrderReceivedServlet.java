@@ -37,7 +37,7 @@ public class OrderReceivedServlet extends HttpServlet {
 
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<h1> Ivan's Restaurant </h1>");
+		out.println("<h1> Empanada's Restaurant </h1>");
 		out.println("<h2> Order your food </h2>");
 
 		out.println("Thank you - your order has been received. You need to pay $" + total);

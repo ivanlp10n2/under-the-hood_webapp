@@ -27,7 +27,7 @@ public class ConfirmationReceivedServlet extends HttpServlet {
 
         out.println("<html>");
         out.println("<body>");
-        out.println("<h1> Ivan's Restaurant </h1>");
+        out.println("<h1> Empanada's Restaurant </h1>");
         out.println("<h2> Thanks for trust on us</h2>");
 
         out.println("Your order has been received. The total amuont is: $" + total );

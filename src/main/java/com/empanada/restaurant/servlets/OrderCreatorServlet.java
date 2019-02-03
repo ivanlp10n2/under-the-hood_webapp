@@ -13,14 +13,14 @@ import java.util.List;
 
 public class OrderCreatorServlet extends HttpServlet {
 	@Override
-	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+	public void service(ServletRequest req, ServletResponse res) throws IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 
 
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<h1> Ivan's Restaurant </h1>");
+		out.println("<h1> Empanada's Restaurant </h1>");
 		out.println("<h2> Order your food </h2>");
 		out.println("<form action='orderReceived.html' method='POST'>");
 

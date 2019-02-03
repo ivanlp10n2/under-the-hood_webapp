@@ -14,7 +14,7 @@
         <servlet-class>com.empanada.restaurant.servlets.MenuItemsServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name> HelloWorldServlet</servlet-name>
+        <servlet-name>helloWorldServlet</servlet-name>
         <servlet-class>com.empanada.restaurant.servlets.HelloWorldServlet</servlet-class>
     </servlet>
     <servlet>
@@ -35,21 +35,24 @@
     </servlet>
 
 
+    <!-- Tesing Servlets-->
+    <servlet-mapping>
+        <servlet-name>helloWorldServlet</servlet-name>
+        <url-pattern>/helloWorld.html</url-pattern>
+    </servlet-mapping>
+
+    <!-- Business application -->
     <servlet-mapping>
         <servlet-name>home</servlet-name>
-        <url-pattern>/listAll.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/hello.html</url-pattern>
+        <url-pattern>/menu.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>searchItemServlet</servlet-name>
-        <url-pattern>/searchResults.html</url-pattern>
+        <url-pattern>/searchItem.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>orderCreatorServlet</servlet-name>
-        <url-pattern>/orderCreator.html</url-pattern>
+        <url-pattern>/order.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>orderCreatorReceived</servlet-name>
@@ -57,10 +60,47 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>thanksYou</servlet-name>
-        <url-pattern>/ThanksYou.html</url-pattern>
+        <url-pattern>/thanksYou.html</url-pattern>
     </servlet-mapping>
 
+    <!-- Session timeout connection-->
     <session-config>
         <session-timeout>120</session-timeout>
     </session-config>
+
+
+    <!-- Security roles -->
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>User role</web-resource-name>
+            <url-pattern>/order.html</url-pattern>
+            <url-pattern>/thanksYou.html</url-pattern>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <!-- If form is set, you need to create a Auth Form with j_security_check-->
+<!--    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/errorLogin.html</form-error-page>
+        </form-login-config>
+    </login-config>
+
+-->
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Empanada Restaurant</realm-name>
+    </login-config>
 </web-app> 
