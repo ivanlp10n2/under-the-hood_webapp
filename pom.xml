@@ -11,12 +11,12 @@
 
 	<packaging>war</packaging>
 
-	<name>Ricky's Restaurant</name>
+	<name>Empanada's Restaurant</name>
 
-	<url>http://restaurant.virtualpairprogrammers.com</url>
+	<url>http://restaurant.empanada.com</url>
 
 	<properties>
-		<tomcat.version>8.0.28</tomcat.version>
+		<tomcat.version>[8.0.28, )</tomcat.version>
 	</properties>
 
 	<build>

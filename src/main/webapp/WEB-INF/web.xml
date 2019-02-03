@@ -4,9 +4,9 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
 
-    <display-name>Ricky's Restaurant</display-name>
+    <display-name>Empanada's Restaurant</display-name>
     <description>
-        The menu and online ordering system for Ricky's Restaurant
+        The menu and online ordering system for Empanada's Restaurant
     </description>
 
     <servlet>
