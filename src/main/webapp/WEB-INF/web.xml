@@ -101,6 +101,5 @@
 
     <login-config>
         <auth-method>BASIC</auth-method>
-        <realm-name>Empanada Restaurant</realm-name>
     </login-config>
 </web-app> 
