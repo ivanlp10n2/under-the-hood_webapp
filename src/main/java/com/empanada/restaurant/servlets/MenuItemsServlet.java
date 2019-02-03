@@ -1,7 +1,8 @@
 package com.empanada.restaurant.servlets;
 
+import com.empanada.restaurant.data.MenuDao;
+import com.empanada.restaurant.data.MenuDaoFactory;
 import com.empanada.restaurant.domain.MenuItem;
-import com.empanada.restaurant.data.MenuDataService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,17 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuItemsServlet extends HttpServlet {
 
-	public void service (HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setContentType("text/html");
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
+
+		MenuDao menuDao = MenuDaoFactory.getMenuDao();
+		List<MenuItem> items = menuDao.getFullMenu();
+
+
 		out.println("<html><body>");
 		out.println("<h1> Empanada's Restaurant </h1>");
 		out.println("<h2> Menu Items </h2>");
 
-		ArrayList<MenuItem> items = new ArrayList<MenuItem>(new MenuDataService().getFullMenu());
 		for (MenuItem item : items){
 			out.println("<li>" + item.toString() + "</li>");
 		}

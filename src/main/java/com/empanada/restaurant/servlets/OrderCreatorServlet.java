@@ -1,22 +1,25 @@
 package com.empanada.restaurant.servlets;
 
-import com.empanada.restaurant.domain.MenuItem;
-import com.empanada.restaurant.data.MenuDataService;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import com.empanada.restaurant.data.MenuDao;
+import com.empanada.restaurant.data.MenuDaoFactory;
+import com.empanada.restaurant.domain.MenuItem;
+
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
 public class OrderCreatorServlet extends HttpServlet {
 	@Override
-	public void service(ServletRequest req, ServletResponse res) throws IOException {
-		PrintWriter out = res.getWriter();
-		res.setContentType("text/html");
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
 
+		MenuDao menuDao = MenuDaoFactory.getMenuDao();
+		List<MenuItem> items = menuDao.getFullMenu();
 
 		out.println("<html>");
 		out.println("<body>");
@@ -24,7 +27,6 @@ public class OrderCreatorServlet extends HttpServlet {
 		out.println("<h2> Order your food </h2>");
 		out.println("<form action='orderReceived.html' method='POST'>");
 
-		List<MenuItem> items = new MenuDataService().getFullMenu();
 
 		for (MenuItem item : items){
 			out.println("<li>" + item.getName() + " " + item.getPrice() + "    <input type='text' name='item_" + item.getId() + "' /> "+ "</li>");

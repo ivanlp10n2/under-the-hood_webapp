@@ -1,7 +1,6 @@
 package com.empanada.restaurant.servlets;
 
 import com.empanada.restaurant.domain.MenuItem;
-import com.empanada.restaurant.data.MenuDataService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
