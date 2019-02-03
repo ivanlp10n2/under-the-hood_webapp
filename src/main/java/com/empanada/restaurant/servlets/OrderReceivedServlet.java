@@ -1,27 +1,33 @@
 package com.empanada.restaurant.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.empanada.restaurant.data.MenuDao;
+import com.empanada.restaurant.data.MenuDaoFactory;
+import com.empanada.restaurant.domain.Order;
 
+import java.io.IOException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.empanada.restaurant.data.MenuDataService;
 
 public class OrderReceivedServlet extends HttpServlet {
 	
-	MenuDataService menuDataService = new MenuDataService();
+	MenuDao menuDao = MenuDaoFactory.getMenuDao();
 	
-	public void service (HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost (HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		int maxId = menuDataService.getFullMenu().size();
-		for (int i = 0; i <maxId; i++) {
+		int maxId = menuDao.getFullMenu().size();
+		Order order = menuDao.newOrder(request.getUserPrincipal().getName());
+		for (int i = 0; i <maxId+1; i++) {
 			String quantity = request.getParameter("item_" + i);
 			 try  
 			  {  
 			    int q = Integer.parseInt(quantity);
-			    if (q > 0) menuDataService.addToOrder(menuDataService.getItem(i), q);
+			    if (q > 0) {
+			    	menuDao.addToOrder(order.getId(), menuDao.getItem(i), q);
+			    	order.addToOrder(menuDao.getItem(i), q);
+			    }
 			  }  
 			  catch(NumberFormatException nfe)  
 			  {  
@@ -30,19 +36,16 @@ public class OrderReceivedServlet extends HttpServlet {
 			  
 		}
 		
-		Double total = menuDataService.getOrderTotal();
+		System.out.println("A new order has been received.");
 		
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
+		Double total = menuDao.getOrderTotal(order.getId());
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("total", total);
+		
+		String redirectUrl = "/thankYou.html";
+		redirectUrl = response.encodeURL(redirectUrl);
+		response.sendRedirect(redirectUrl);
 
-		out.println("<html>");
-		out.println("<body>");
-		out.println("<h1> Empanada's Restaurant </h1>");
-		out.println("<h2> Order your food </h2>");
-
-		out.println("Thank you - your order has been received. You need to pay $" + total);
-				
-		out.println("</body></html>");
-		out.close();
 	}
 }

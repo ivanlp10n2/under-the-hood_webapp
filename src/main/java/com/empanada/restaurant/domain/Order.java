@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
+	
+	private Long id;
 	private Map<MenuItem,Integer> currentOrder = new HashMap<MenuItem,Integer>();
-	private String status = "order accepted";
+	private String status;
+	private String customer;
 	
 	public void addToOrder(MenuItem menuItem, int quantity) {
 		int currentQuantity = 0;
@@ -27,10 +30,8 @@ public class Order {
 	
 	public void setStatus(String status) {
 		this.status = status;
-		System.out.println("status set to " + status);
 	}
 	
-	//added ch14
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 			for (MenuItem menuItem : currentOrder.keySet()) {
@@ -38,4 +39,21 @@ public class Order {
 			}
 		return sb.toString();
 	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+	
+	public String getCustomer() {
+		return customer;
+	}
+	
 }
