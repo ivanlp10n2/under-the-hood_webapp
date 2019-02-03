@@ -1,5 +1,7 @@
 package com.empanada.restaurant.servlets;
 
+import com.empanada.restaurant.data.MenuDao;
+import com.empanada.restaurant.data.MenuDaoFactory;
 import com.empanada.restaurant.domain.MenuItem;
 
 import javax.servlet.ServletException;
@@ -18,8 +20,9 @@ public class MenuSearchServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		out.println("<html><body>");
 
-		MenuDataService menuDataService = new MenuDataService();
-		List<MenuItem> resultItems = new ArrayList<MenuItem>(menuDataService.find(req.getParameter("searchTerm")));
+		MenuDao menuDao = MenuDaoFactory.getMenuDao();
+
+		List<MenuItem> resultItems = new ArrayList<MenuItem>(menuDao.find(req.getParameter("searchTerm")));
 
 		if(resultItems.size() < 1){
 			out.println("No results were returned");
