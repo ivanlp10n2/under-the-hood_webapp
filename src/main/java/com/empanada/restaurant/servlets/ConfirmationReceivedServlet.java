@@ -1,5 +1,7 @@
 package com.empanada.restaurant.servlets;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
@@ -17,10 +19,6 @@ public class ConfirmationReceivedServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        resp.setContentType("text/html");
-
-        //String total = req.getParameter("total");
 
         HttpSession sess = req.getSession();
         Double total = (Double)sess.getAttribute("total");
@@ -30,15 +28,11 @@ public class ConfirmationReceivedServlet extends HttpServlet {
             return;
         }
 
-        out.println("<html>");
-        out.println("<body>");
-        out.println("<h1> Empanada's Restaurant </h1>");
-        out.println("<h2> Thanks for trust on us</h2>");
+        req.setAttribute("total", total);
 
-        out.println("Your order has been received. The total amuont is: $" + total );
+        ServletContext context = getServletContext();
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/order-received.jsp");
+        dispatcher.forward(req, resp);
 
-        out.println("</body>");
-        out.println("</html>");
-        out.close();
     }
 }
