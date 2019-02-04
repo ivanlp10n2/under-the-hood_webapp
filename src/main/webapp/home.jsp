@@ -1,11 +1,9 @@
 <%@ page import="com.empanada.restaurant.domain.MenuItem" %>
 <%@ page import="java.util.List" %>
 <html>
-<head>
-    <title>Capitan Empanada</title>
-</head>
+<%@include file="header.jsp"%>
 <body>
-    <%@include file="header.jsp"%>
+
     <h2> Comida hecha con amor  </h2>
 
     <ul>

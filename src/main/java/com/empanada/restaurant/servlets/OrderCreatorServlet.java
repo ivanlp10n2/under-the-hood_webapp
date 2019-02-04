@@ -5,6 +5,9 @@ import com.empanada.restaurant.data.MenuDao;
 import com.empanada.restaurant.data.MenuDaoFactory;
 import com.empanada.restaurant.domain.MenuItem;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
@@ -19,32 +22,15 @@ import java.util.List;
 @ServletSecurity(@HttpConstraint(rolesAllowed = {"user"}))
 public class OrderCreatorServlet extends HttpServlet {
 	@Override
-	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		MenuDao menuDao = MenuDaoFactory.getMenuDao();
 		List<MenuItem> items = menuDao.getFullMenu();
 
-		out.println("<html>");
-		out.println("<body>");
-		out.println("<h1> Empanada's Restaurant </h1>");
-		out.println("<h2> Order your food </h2>");
-		out.println("<form action='/orderReceived.html' method='POST'>");
+		request.setAttribute("menuItems", items);
 
-
-		for (MenuItem item : items){
-			out.println("<li>" + item.getName() + " " + item.getPrice() + "    <input type='text' name='item_" + item.getId() + "' /> "+ "</li>");
-		}
-
-
-		out.println("");
-		out.println("");
-		out.println("<input type='submit' value='Create Order'/>");
-		out.println("</form>");
-		out.println("</body>");
-		out.println("</html>");
-
-
+		ServletContext context = getServletContext();
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/order-creator.jsp");
+		dispatcher.forward(request,response);
 	}
 }
