@@ -14,8 +14,8 @@ h2 {
 }
 
 .logo {
-    height: 200px;
-    background-image: url("topimage.png");
+    height: 300px;
+    background-image: url("/images/empanada_header.jpg");
     background-position: left center;
     text-align: center;
 }
