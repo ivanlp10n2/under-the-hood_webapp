@@ -5,6 +5,7 @@ target/
 libs/
 tmp/
 node_modules/
+tomcat.8080/
  
 # OS Files #
 .DS_Store
