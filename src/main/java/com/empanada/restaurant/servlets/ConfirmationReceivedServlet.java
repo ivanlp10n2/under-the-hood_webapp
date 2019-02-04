@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/thanksYou.html")
+@WebServlet("/thankYou.html")
 @ServletSecurity(@HttpConstraint(rolesAllowed = {"user"}))
 public class ConfirmationReceivedServlet extends HttpServlet {
 

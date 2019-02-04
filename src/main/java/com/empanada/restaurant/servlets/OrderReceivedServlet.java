@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/orderReceived.html")
-
 public class OrderReceivedServlet extends HttpServlet {
 	
 	MenuDao menuDao = MenuDaoFactory.getMenuDao();

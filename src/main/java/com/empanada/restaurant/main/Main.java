@@ -26,11 +26,9 @@ public class Main {
 
 
 
-        tomcat.addUser("admin", "admin");
-        tomcat.addRole("admin", "user");
+        tomcat.addUser("empanada", "password");
+        tomcat.addRole("empanada", "user");
 
-        tomcat.addUser("a","a");
-        tomcat.addRole("a", "user");
 
         tomcat.start();
         tomcat.getServer().await();

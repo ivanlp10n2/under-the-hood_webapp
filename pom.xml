@@ -16,7 +16,8 @@
 	<url>http://restaurant.empanada.com</url>
 
 	<properties>
-		<tomcat.version>[8.0.53, )</tomcat.version>
+		<!-- <tomcat.version>8.0.28</tomcat.version>  for local running. Don't push it to git-->
+		<tomcat.version>8.0.28</tomcat.version>
 	</properties>
 
 	<build>

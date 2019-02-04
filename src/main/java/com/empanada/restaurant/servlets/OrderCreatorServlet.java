@@ -30,7 +30,7 @@ public class OrderCreatorServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<h1> Empanada's Restaurant </h1>");
 		out.println("<h2> Order your food </h2>");
-		out.println("<form action='orderReceived.html' method='POST'>");
+		out.println("<form action='/orderReceived.html' method='POST'>");
 
 
 		for (MenuItem item : items){
@@ -40,7 +40,7 @@ public class OrderCreatorServlet extends HttpServlet {
 
 		out.println("");
 		out.println("");
-		out.println("<input type='submit' />");
+		out.println("<input type='submit' value='Create Order'/>");
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
