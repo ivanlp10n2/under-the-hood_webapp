@@ -15,6 +15,7 @@ public class MenuSearchLoggingFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 		System.out.println("Searching word : " + servletRequest.getParameter("searchTerm"));
+		filterChain.doFilter(servletRequest,servletResponse);
 	}
 
 	@Override
