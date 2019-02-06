@@ -11,16 +11,17 @@
     Menú que contengan : <input type="text" name="searchTerm"  /> <input type="submit" value="BUSCAR" />
 </form>
 
-<c:if test="${hasSearched}.equals('yes')">
-    <c:if test="${listItems}.size() >= 1" >
+<c:if test="${hasSearched}">
+    <c:if test="${not empty listItems}" >
         <c:forEach items="${listItems}" var="item">
             <li> ${item} </li>
         </c:forEach>
     </c:if>
-    <c:if test="${listItems}.size() >= 1" >
+    <c:if test="${empty listItems}" >
         No se encontraron resultados
     </c:if>
 </c:if>
+
 
 <%@include file="footer.jsp"%>
 </body>

@@ -26,19 +26,11 @@ public class MenuSearchServlet extends HttpServlet {
 		String searchItem = req.getParameter("searchTerm");
 
 		if(searchItem != null){
-			req.setAttribute("hasSearched", "yes");
 			MenuDao menuDao = MenuDaoFactory.getMenuDao();
 
 			List<MenuItem> resultItems = new ArrayList<MenuItem>(menuDao.find(searchItem));
-//
-//			if(resultItems.size() < 1){
-//				out.println("No results were returned");
-//			}else{
-//				for (MenuItem item : resultItems){
-//					out.println("<li>" + item.getName() +"</li>");
-//				}
-//			}
 
+			req.setAttribute("hasSearched", true);
 			req.setAttribute("listItems", resultItems);
 		}
 
