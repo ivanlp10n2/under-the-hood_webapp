@@ -8,8 +8,8 @@
 </div>
 <div class="links">
     <a href='/' class="button">Ver el menú</a>
-    <a href='search.html' class="button">Buscar comida</a>
-    <a href='order.html' class="button">Realizar el pedido</a>
+    <a href='/searchItem.html' class="button">Buscar comida</a>
+    <a href='/order.html' class="button">Realizar el pedido</a>
 <div class="clearBoth"></div>
 </div>
 <div class="main">
