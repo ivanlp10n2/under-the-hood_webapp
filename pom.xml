@@ -97,6 +97,11 @@
 			<version>1.4.196</version>
 		</dependency>
 		<!-- Servlet api and dependencies -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 
 	</dependencies>

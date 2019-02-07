@@ -4,6 +4,9 @@ import com.empanada.restaurant.data.MenuDao;
 import com.empanada.restaurant.data.MenuDaoFactory;
 import com.empanada.restaurant.domain.MenuItem;
 
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,25 +19,26 @@ import java.util.List;
 
 @WebServlet("/searchItem.html")
 public class MenuSearchServlet extends HttpServlet {
+
 	@Override
-	public void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		resp.setContentType("text/html");
-		PrintWriter out = resp.getWriter();
-		out.println("<html><body>");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		MenuDao menuDao = MenuDaoFactory.getMenuDao();
+		String searchItem = req.getParameter("searchTerm");
 
-		List<MenuItem> resultItems = new ArrayList<MenuItem>(menuDao.find(req.getParameter("searchTerm")));
+		if(searchItem != null){
+			MenuDao menuDao = MenuDaoFactory.getMenuDao();
 
-		if(resultItems.size() < 1){
-			out.println("No results were returned");
-		}else{
-			for (MenuItem item : resultItems){
-				out.println("<li>" + item.getName() +"</li>");
-			}
+			List<MenuItem> resultItems = new ArrayList<MenuItem>(menuDao.find(searchItem));
+
+			req.setAttribute("hasSearched", true);
+			req.setAttribute("listItems", resultItems);
 		}
 
-		out.println("</body></html>");
-		out.close();
+		ServletContext context = getServletContext();
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/search.jsp");
+		dispatcher.forward(req, resp);
+
+
 	}
+
 }
