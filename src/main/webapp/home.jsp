@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<script src="/js/client.js"></script>
 <html>
 <%@include file="header.jsp"%>
 <body>
