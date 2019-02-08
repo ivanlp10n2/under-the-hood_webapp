@@ -24,7 +24,7 @@ public class LiveOrderWebSocket {
 
 	@OnMessage
 	public void onMessage(String message, Session sess){
-		System.out.println("message");
+		System.out.println("the message is " + message + " from : " + sess.getId());
 
 		try{
 			sess.getBasicRemote().sendText("Hello Client " + sess.getId() + "!");
