@@ -1,10 +1,13 @@
 package com.empanada.restaurant.websockets;
 
+import com.empanada.restaurant.domain.Order;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.websocket.Session;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LiveOrderSessionHandler {
@@ -19,7 +22,7 @@ public class LiveOrderSessionHandler {
 		sessions.remove(sess);
 	}
 
-	public void sendMessage(Gson meesage) throws IOException {
+	public void sendMessage(JsonObject meesage){
 		for (Session session : sessions){
 			try{
 				session.getBasicRemote().sendText(meesage.toString());
@@ -28,5 +31,18 @@ public class LiveOrderSessionHandler {
 			}
 
 		}
+	}
+
+	public void createOrder(Order order) {
+
+		JsonObject json = new JsonObject();
+		json.addProperty("id", order.getId());
+		json.addProperty("update", new Date().toString());
+		json.addProperty("currentOrder", order.toString());
+		json.addProperty("status", order.getStatus());
+		json.addProperty("action", "add");
+
+		sendMessage(json);
+		System.out.println(json);
 	}
 }

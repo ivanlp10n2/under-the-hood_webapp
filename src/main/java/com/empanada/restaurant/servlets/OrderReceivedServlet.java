@@ -3,6 +3,9 @@ package com.empanada.restaurant.servlets;
 import com.empanada.restaurant.data.MenuDao;
 import com.empanada.restaurant.data.MenuDaoFactory;
 import com.empanada.restaurant.domain.Order;
+import com.empanada.restaurant.websockets.LiveOrderSessionHandler;
+import com.empanada.restaurant.websockets.LiveOrderSessionHandlerSingleton;
+import com.empanada.restaurant.websockets.LiveOrderWebSocket;
 
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +40,9 @@ public class OrderReceivedServlet extends HttpServlet {
 			  }  
 			  
 		}
+
+		LiveOrderSessionHandler client = LiveOrderSessionHandlerSingleton.getHandler();
+		client.createOrder(order);
 		
 		System.out.println("A new order has been received.");
 		
