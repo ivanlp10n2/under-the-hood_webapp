@@ -7,7 +7,7 @@
 <form action="j_security_check" method="POST">
     Username: <input type="text" name="j_username" />
     Password: <input type="password" name="j_password" />
-    <input type="submit" value="login" />
+    <input type="submit" value="ingresar" />
 </form>
 <%@include file="footer.jsp"%>
 </body>

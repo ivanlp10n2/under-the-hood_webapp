@@ -65,7 +65,7 @@
 
 // let client = new WebSocketClient('ws', 'localhost', 8080, '/live-order');
 
-let client = new WebSocket("ws://localhost:8080/live-order");
+let client = new WebSocket("ws://localhost:8080/ws-live-order");
 // client.connect();
 
 client.onmessage = onMessage;

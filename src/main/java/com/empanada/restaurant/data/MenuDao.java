@@ -22,6 +22,29 @@ public class MenuDao {
 		bootstrap.initializeDatabase();
 	}
 
+	public List<Order> getAllOrders() {
+		List<Order> orders = new ArrayList<Order>();
+		try (Connection conn = DriverManager.getConnection("jdbc:h2:~/restaurant","","");
+			 Statement stm = conn.createStatement();
+		) {
+
+			ResultSet results = stm.executeQuery("SELECT * FROM orders");
+
+			while (results.next()) {
+				Order order = new Order();
+				order.setId(results.getLong("id"));
+				order.setStatus(results.getString("status"));
+				Map<MenuItem,Integer> orderMap = convertContentsToOrderMap(results.getString("contents"));
+				order.setContents(orderMap);
+				order.setCustomer(results.getString("customer"));
+				orders.add(order);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return orders;
+	}
+
 	private List<MenuItem> buildMenu(ResultSet results) throws SQLException {
 		List<MenuItem> menuItems = new ArrayList<MenuItem>();
 		while (results.next()) {

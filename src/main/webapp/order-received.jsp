@@ -10,6 +10,10 @@
 
 <i>El total a pagar es de $<%=total%></i>
 
+<br><br>
+<form action="/live-orders.html">
+    <input type="submit" value="Ver mis pedidos" />
+</form>
 
 <%@include file="footer.jsp"%>
 </body>
