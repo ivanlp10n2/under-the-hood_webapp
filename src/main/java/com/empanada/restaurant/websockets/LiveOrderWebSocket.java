@@ -9,7 +9,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.Date;
 
-@ServerEndpoint("/live-order")
+@ServerEndpoint("/ws-live-order")
 public class LiveOrderWebSocket {
 
 	//Session handler is to keep track of different users
@@ -17,7 +17,9 @@ public class LiveOrderWebSocket {
 	public void onOpen(Session sess){
 		LiveOrderSessionHandler sessionHandler = LiveOrderSessionHandlerSingleton.getHandler();
 		sessionHandler.addSession(sess);
-		System.out.println("new client has oppened a connection :" + sess.getId());
+		System.out.println("New client has opened a connection...");
+		System.out.println("Retrieving all the orders...");
+		sessionHandler.getAllOrders(sess);
 	}
 
 	@OnClose
