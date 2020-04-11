@@ -2,24 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.virtualpairprogrammers</groupId>
-
 	<artifactId>restaurant</artifactId>
-
 	<version>1.0-SNAPSHOT</version>
-
 	<packaging>war</packaging>
-
 	<name>Empanada's Restaurant</name>
-
 	<url>http://restaurant.empanada.com</url>
-
-	<properties>
-		<!-- <tomcat.version>8.0.28</tomcat.version>  for local running. Don't push it to git-->
-		<tomcat.version>8.0.28</tomcat.version>
-	</properties>
-
+<!-- 	<properties> -->
+<!-- 		<tomcat.version>8.0.28</tomcat.version> -->
+<!-- 	</properties> -->
 	<build>
 		<plugins>
 
@@ -63,32 +54,32 @@
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-logging-juli</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jasper</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jasper-el</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jsp-api</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 
 		<dependency>
@@ -105,7 +96,7 @@
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-websocket</artifactId>
-			<version>${tomcat.version}</version>
+<!-- 			<version>${tomcat.version}</version> -->
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
